@@ -1,6 +1,5 @@
 ﻿Imports System.IO
 Imports System.Text
-Imports FileHelpers
 
 Public Class Form1
 
@@ -12,9 +11,6 @@ Public Class Form1
         If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
             fpath = OpenFileDialog1.FileName
         End If
-
-        Dim EngOrders As FileHelperEngine(Of Orders) = New FileHelperEngine(Of Orders)
-        Dim res = EngOrders.ReadFile(fpath)
 
         PathTextBox.Text = fpath
         Dim fname As String = fpath
@@ -79,16 +75,3 @@ Public Class Form1
     End Sub
 End Class
 
-<DelimitedRecord(",")>
-Public Class Orders
-    Public Property Id As Integer
-    Public Property Item As String
-    Public Property Owner As String
-    Public Property Quantity As Integer
-    Public Property Unknown As Double
-    Public Property SellingPrice As Double
-    Public Property MSRP As Double
-    Public Property Manufacturer As String
-    Public Property Category As String
-    Public Property Discount As Double
-End Class
